@@ -1,50 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>City Secrets</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <title>City Tips</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-    <div class="container">
-        <h1>City Secrets</h1>
-        <button onclick="goHome()" class="home-btn hidden">Home</button>
-        <ul class="city-list">
-            <li><a href="#" onclick="showForm('Philadelphia')">Philadelphia</a></li>
-            <li><a href="#" onclick="showForm('Boston')">Boston</a></li>
-            <li><a href="#" onclick="showForm('New York City')">New York City</a></li>
-        </ul>
-        <div class="tip-form hidden">
-            <label for="tip">Share a secret tip for <span id="city-name"></span>:</label>
-            <textarea id="tip" rows="4"></textarea>
-            <button onclick="submitTip()">Submit</button>
+    <div class="menu">
+        <button onclick="showHome()">Home</button>
+        <button onclick="showCity('Philadelphia')">Philadelphia</button>
+        <button onclick="showCity('Boston')">Boston</button>
+        <button onclick="showCity('New York City')">New York City</button>
+    </div>
+
+    <div class="content">
+        <div id="home">
+            <h1>Welcome to City Tips!</h1>
+            <p>Select a city to view and add tips.</p>
         </div>
-        <div class="tips-container">
-            <!-- Historical Tips will be added here -->
+
+        <div id="city-section" class="hidden">
+            <h1 id="city-name"></h1>
+            <div id="tips-list"></div>
+            <input type="text" id="tip-input" placeholder="Add a tip...">
+            <button onclick="addTipToFirebase()">Add Tip</button>
         </div>
     </div>
+
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+    <!-- Add the Firebase Realtime Database -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js"></script>
     <script src="scripts.js"></script>
-    <script type="module">
-        // Import the functions you need from the SDKs you need
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
-        // TODO: Add SDKs for Firebase products that you want to use
-        // https://firebase.google.com/docs/web/setup#available-libraries
-      
-        // Your web app's Firebase configuration
-        const firebaseConfig = {
-          apiKey: "AIzaSyASUiM8JcuQTcaEfsou2FMEYszHj9QZvAE",
-          authDomain: "city-web-app-587d9.firebaseapp.com",
-          databaseURL: "https://city-web-app-587d9-default-rtdb.firebaseio.com",
-          projectId: "city-web-app-587d9",
-          storageBucket: "city-web-app-587d9.appspot.com",
-          messagingSenderId: "1043876965787",
-          appId: "1:1043876965787:web:a9a7036a0ab8300511053e"
-        };
-      
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-      </script>
 </body>
+
 </html>
