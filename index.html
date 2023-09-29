@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>City Tips</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>City Secrets</h1>
+        <ul class="city-list">
+            <li><a href="#" onclick="showForm('Philadelphia')">Philadelphia</a></li>
+            <li><a href="#" onclick="showForm('Boston')">Boston</a></li>
+            <li><a href="#" onclick="showForm('New York City')">New York City</a></li>
+        </ul>
+        <div class="tip-form hidden">
+            <label for="tip">Share a secret tip for <span id="city-name"></span>:</label>
+            <textarea id="tip" rows="4"></textarea>
+            <button onclick="submitTip()">Submit</button>
+        </div>
+        <div class="tips-container">
+            <!-- Tips will be added here -->
+        </div>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>

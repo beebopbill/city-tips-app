@@ -1,0 +1,113 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(45deg, #5f2c82, #49a09d);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    width: 100%;
+    max-width: 600px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.city-list {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+}
+
+.city-list li {
+    text-align: center;
+    margin: 15px 0;
+    padding: 20px;
+    border-radius: 10px;
+    background: #49a09d;
+    transition: transform 0.2s, box-shadow 0.2s;
+    width: 100%;
+    font-size: 1.5em;
+}
+
+.city-list li:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    background: #5f2c82;
+}
+
+.tip-form, .tips-container {
+    margin-top: 20px;
+    width: 100%;
+}
+
+label, input, textarea, button {
+    display: block;
+    width: 100%;
+    margin: 15px 0;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+}
+
+input, textarea {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+button {
+    background: #49a09d;
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+button:hover {
+    background: #5f2c82;
+}
+
+.hidden {
+    display: none;
+}
+
+.tip-item {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    font-size: 1.2em;
+    animation: fadeIn 1s;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
