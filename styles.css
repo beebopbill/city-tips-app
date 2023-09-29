@@ -1,113 +1,133 @@
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 
 body {
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(45deg, #5f2c82, #49a09d);
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    padding: 20px;
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f4f4;
+    overflow-y: scroll;
 }
 
 .container {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
+    max-width: 800px;
+    margin: 0 auto;
     padding: 20px;
-    width: 100%;
-    max-width: 600px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
 }
 
 h1 {
-    font-size: 2.5em;
-    margin-bottom: 20px;
     text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: 600;
 }
 
 .city-list {
     list-style-type: none;
+    padding: 0;
     display: flex;
     flex-direction: column;
-    align-items: stretch;
-    width: 100%;
+    gap: 10px;
 }
 
-.city-list li {
+.city-list li a {
+    display: block;
+    padding: 10px 20px;
+    background-color: #5f2c82;
+    color: #fff;
     text-align: center;
-    margin: 15px 0;
-    padding: 20px;
-    border-radius: 10px;
-    background: #49a09d;
-    transition: transform 0.2s, box-shadow 0.2s;
-    width: 100%;
-    font-size: 1.5em;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.2s, transform 0.2s;
 }
 
-.city-list li:hover {
-    transform: scale(1.05);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-    background: #5f2c82;
+.city-list li a:hover {
+    background-color: #49a09d;
+    transform: translateY(-5px);
 }
 
-.tip-form, .tips-container {
+.tip-form {
     margin-top: 20px;
-    width: 100%;
+    animation: fadeIn 0.5s;
 }
 
-label, input, textarea, button {
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.tip-form label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.tip-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.tip-form button {
     display: block;
     width: 100%;
-    margin: 15px 0;
-    padding: 15px;
+    padding: 10px;
+    background-color: #5f2c82;
+    color: #fff;
     border: none;
     border-radius: 5px;
-    font-size: 1.2em;
-}
-
-input, textarea {
-    background: rgba(255, 255, 255, 0.1);
-    color: #fff;
-}
-
-button {
-    background: #49a09d;
-    color: #fff;
     cursor: pointer;
-    transition: background 0.2s;
+    transition: background-color 0.2s, transform 0.2s;
 }
 
-button:hover {
-    background: #5f2c82;
+.tip-form button:hover {
+    background-color: #49a09d;
+    transform: translateY(-5px);
 }
 
 .hidden {
     display: none;
 }
 
-.tip-item {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 15px;
-    margin: 10px 0;
-    border-radius: 10px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    font-size: 1.2em;
-    animation: fadeIn 1s;
+.home-btn {
+    background: #5f2c82;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: background 0.2s, transform 0.2s;
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.home-btn:hover {
+    background: #49a09d;
+    transform: translateY(-5px);
+}
+
+.tip-item {
+    position: relative;
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    animation: fadeIn 0.5s;
+}
+
+.tip-item .year {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #5f2c82;
+    padding: 5px 10px;
+    border-radius: 50%;
+    font-weight: bold;
+    color: #fff;
 }
