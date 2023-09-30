@@ -141,3 +141,20 @@ document.addEventListener('click', function(e) {
     }
 });
 
+// ... Your existing JS code ...
+
+// Search functionality
+const searchBar = document.getElementById('searchBar');
+
+searchBar.addEventListener('keyup', (e) => {
+    const searchString = e.target.value.toLowerCase();
+    const allMemories = memoriesList.getElementsByTagName('li');
+    Array.from(allMemories).forEach((memory) => {
+        const memoryText = memory.textContent.toLowerCase();
+        if (memoryText.includes(searchString)) {
+            memory.style.display = 'block';
+        } else {
+            memory.style.display = 'none';
+        }
+    });
+});

@@ -260,3 +260,24 @@ select {
 .link-container a:hover {
     color: #81C784; /* Slightly lighter color on hover */
 }
+
+.search-container {
+    margin: 20px 0;
+    text-align: center;
+    padding: 0 10px; /* Add some padding to the sides */
+}
+
+#searchBar {
+    padding: 10px;
+    width: 100%; /* Full width */
+    border: 1px solid #e0e0e0; /* Lighter border color */
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #fffdfd; /* Lighter background color */
+    transition: box-shadow 0.3s; /* Transition for a smooth effect on focus */
+}
+
+#searchBar:focus {
+    outline: none;
+    box-shadow: 0 20 12px rgba(0, 0, 0, 0.1); /* Subtle shadow on focus */
+}
