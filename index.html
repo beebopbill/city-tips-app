@@ -1,41 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>City Tips</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-    <div class="menu">
-        <button onclick="showHome()">Home</button>
-        <button onclick="showCity('Philadelphia')">Philadelphia</button>
-        <button onclick="showCity('Boston')">Boston</button>
-        <button onclick="showCity('New York City')">New York City</button>
-    </div>
+    <header>
+        <h1>City Tips</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Submit Your City Hack</h2>
+            <form id="cityTipForm">
+                <select id="citySelect" required>
+                    <option value="Paris">Paris</option>
+                    <option value="Dubai">Dubai</option>
+                    <option value="Amsterdam">Amsterdam</option>
+                    <option value="Madrid">Madrid</option>
+                    <option value="Rome">Rome</option>
+                    <option value="London">London</option>
+                    <option value="Munich">Munich</option>
+                    <option value="Berlin">Berlin</option>
+                    <option value="Barcelona">Barcelona</option>
+                    <option value="New York">New York</option>
+                    <!-- Add more cities as needed -->
+                </select>
+                <textarea id="cityTip" placeholder="Share your city hack..." required></textarea>
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+        <section>
+            <h2>City Hacks</h2>
+            <ul id="cityTipsList">
+                <!-- City hacks will be populated here -->
+            </ul>
+        </section>
+    </main>
 
-    <div class="content">
-        <div id="home">
-            <h1>Welcome to City Tips!</h1>
-            <p>Select a city to view and add tips.</p>
-        </div>
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js"></script>
 
-        <div id="city-section" class="hidden">
-            <h1 id="city-name"></h1>
-            <div id="tips-list"></div>
-            <input type="text" id="tip-input" placeholder="Add a tip...">
-            <button onclick="addTipToFirebase()">Add Tip</button>
-        </div>
-    </div>
-
-    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-    <!-- Add the Firebase Realtime Database -->
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <!-- Your script -->
     <script src="scripts.js"></script>
 </body>
-
 </html>
-
