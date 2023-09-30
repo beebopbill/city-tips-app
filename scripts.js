@@ -91,4 +91,24 @@ document.addEventListener('DOMContentLoaded', function() {
             alert("AHOY! There be a problem here? We'll send minions to invade its space, and discern with sound mind how best to move fo-ward. Kindly!");
         });
     }
+
+    
+});
+
+const modal = document.getElementById('customModal');
+const closeModal = document.getElementById('closeModal');
+
+closeModal.addEventListener('click', function() {
+    modal.style.display = 'none';
+});
+
+function showAlert() {
+    modal.style.display = 'block';
+}
+
+// When the flag emoji is clicked, show the custom modal
+document.addEventListener('click', function(e) {
+    if (e.target && e.target.classList.contains('flag-emoji')) {
+        showAlert();
+    }
 });

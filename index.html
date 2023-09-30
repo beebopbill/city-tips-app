@@ -7,9 +7,6 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>Grateful</h1>
-    </header>
     <main>
         <section>
             <h2>What are you grateful for?</h2>
@@ -36,11 +33,20 @@
             </form>
         </section>
         <section>
-            <h2>Shared Memories</h2>
             <ul id="memoriesList">
                 <!-- Memories will be populated here -->
             </ul>
         </section>
+
+        <!-- Custom Modal -->
+<div class="custom-modal" id="customModal">
+    <div class="modal-content">
+        <span class="close-btn" id="closeModal">&times;</span>
+        <p id="modalMessage">AHOY! There be a problem here? We'll send minions to invade its space, and discern with sound mind how best to move fo-ward. Kindly!</p>
+    </div>
+</div>
+
+
     </main>
     <!-- Firebase SDKs -->
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
