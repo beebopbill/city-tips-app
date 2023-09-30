@@ -3,38 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>City Tips</title>
+    <title>Memories</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <h1>City Tips</h1>
+        <h1>Grateful</h1>
     </header>
     <main>
         <section>
-            <h2>Submit Your City Hack</h2>
-            <form id="cityTipForm">
-                <select id="citySelect" required>
-                    <option value="Paris">Paris</option>
-                    <option value="Dubai">Dubai</option>
-                    <option value="Amsterdam">Amsterdam</option>
-                    <option value="Madrid">Madrid</option>
-                    <option value="Rome">Rome</option>
-                    <option value="London">London</option>
-                    <option value="Munich">Munich</option>
-                    <option value="Berlin">Berlin</option>
-                    <option value="Barcelona">Barcelona</option>
-                    <option value="New York">New York</option>
-                    <!-- Add more cities as needed -->
+            <h2>What are you grateful for?</h2>
+            <form id="memoryForm">
+                <select id="memoryCategory" required>
+                    <option value="family">Family</option>
+                    <option value="friends">Friends</option>
+                    <option value="community">Community</option>
+                    <option value="nature">Nature</option>
+                    <option value="health">Health</option>
+                    <option value="memories">Memories</option>
+                    <option value="love">Love</option>
+                    <option value="life">Life</option>
+                    <option value="animal relations">Animal Relations</option>
+                    <option value="fortune">Fortune</option>
+                    <option value="luck">Luck</option>
+                    <option value="mind">Mind</option>
+                    <option value="body">Body</option>
+                    <option value="spirit">Spirit</option>
+                    <option value="culture">Culture</option>
                 </select>
-                <textarea id="cityTip" placeholder="Share your city hack..." required></textarea>
+                <textarea id="memoryText" placeholder="Share your memory..." required></textarea>
                 <button type="submit">Submit</button>
             </form>
         </section>
         <section>
-            <h2>City Hacks</h2>
-            <ul id="cityTipsList">
-                <!-- City hacks will be populated here -->
+            <h2>Shared Memories</h2>
+            <ul id="memoriesList">
+                <!-- Memories will be populated here -->
             </ul>
         </section>
     </main>

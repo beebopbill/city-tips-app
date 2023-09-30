@@ -13,47 +13,47 @@ firebase.initializeApp(firebaseConfig);
 const db = firebase.database();
 
 document.addEventListener('DOMContentLoaded', function() {
-    const cityTipForm = document.getElementById('cityTipForm');
-    const cityTipsList = document.getElementById('cityTipsList');
+    const memoryForm = document.getElementById('memoryForm');
+    const memoriesList = document.getElementById('memoriesList');
 
-    cityTipForm.addEventListener('submit', (e) => {
+    memoryForm.addEventListener('submit', (e) => {
         e.preventDefault();
 
-        const city = document.getElementById('citySelect').value;
-        const tip = document.getElementById('cityTip').value;
+        const category = document.getElementById('memoryCategory').value;
+        const memory = document.getElementById('memoryText').value;
 
-        // Store the hack in Firebase
-        const newHackRef = db.ref('hacks').push();
-        newHackRef.set({
-            city: city,
-            tip: tip,
+        // Store the memory in Firebase
+        const newMemoryRef = db.ref('memories').push();
+        newMemoryRef.set({
+            category: category,
+            memory: memory,
             upvotes: 0,
             downvotes: 0
         });
 
         // Clear the form
-        cityTipForm.reset();
+        memoryForm.reset();
     });
 
-    db.ref('hacks').on('value', (snapshot) => {
+    db.ref('memories').on('value', (snapshot) => {
         const data = snapshot.val();
-        cityTipsList.innerHTML = ''; // Clear the list
+        memoriesList.innerHTML = ''; // Clear the list
 
         for (let key in data) {
-            const hack = data[key];
+            const memory = data[key];
             const li = document.createElement('li');
             li.setAttribute('data-id', key);
-            li.setAttribute('data-votes', hack.upvotes - hack.downvotes);
+            li.setAttribute('data-votes', memory.upvotes - memory.downvotes);
             li.innerHTML = `
-                <strong>${hack.city}:</strong> ${hack.tip}
-                <span class="vote-count">${hack.upvotes - hack.downvotes}</span>
+                <strong>${memory.category}:</strong> ${memory.memory}
+                <span class="vote-count">${memory.upvotes - memory.downvotes}</span>
                 <span class="emoji-actions">
                     <span class="emoji upvote" title="Upvote">👍</span>
                     <span class="emoji downvote" title="Downvote">👎</span>
                     <span class="emoji flag" title="Flag">🚩</span>
                 </span>
             `;
-            cityTipsList.appendChild(li);
+            memoriesList.appendChild(li);
             addVoteListeners(li, key);
             addFlagListener(li);
         }
@@ -65,22 +65,22 @@ document.addEventListener('DOMContentLoaded', function() {
         const voteCountEl = li.querySelector('.vote-count');
 
         upvoteBtn.addEventListener('click', function() {
-            const hackRef = db.ref('hacks/' + key);
-            hackRef.transaction(hack => {
-                if (hack) {
-                    hack.upvotes = (hack.upvotes || 0) + 1;
+            const memoryRef = db.ref('memories/' + key);
+            memoryRef.transaction(memory => {
+                if (memory) {
+                    memory.upvotes = (memory.upvotes || 0) + 1;
                 }
-                return hack;
+                return memory;
             });
         });
 
         downvoteBtn.addEventListener('click', function() {
-            const hackRef = db.ref('hacks/' + key);
-            hackRef.transaction(hack => {
-                if (hack) {
-                    hack.downvotes = (hack.downvotes || 0) + 1;
+            const memoryRef = db.ref('memories/' + key);
+            memoryRef.transaction(memory => {
+                if (memory) {
+                    memory.downvotes = (memory.downvotes || 0) + 1;
                 }
-                return hack;
+                return memory;
             });
         });
     }
