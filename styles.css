@@ -100,3 +100,21 @@ li {
 li:hover {
     transform: scale(1.05);
 }
+
+.vote-count {
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.emoji-actions {
+    float: right;
+}
+
+.emoji {
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.emoji:hover {
+    transform: scale(1.2);
+}
