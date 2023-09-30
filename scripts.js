@@ -107,6 +107,20 @@ document.addEventListener('DOMContentLoaded', function() {
     
 });
 
+// ... Your existing JS code ...
+
+// Update progress bar based on total submissions
+db.ref('memories').on('value', (snapshot) => {
+    const data = snapshot.val();
+    const totalSubmissions = Object.keys(data).length;
+    const progressBar = document.getElementById('progressBar');
+    const progressPercentage = (totalSubmissions / 10000) * 100;
+
+    progressBar.style.width = `${progressPercentage}%`;
+    progressBar.textContent = `${totalSubmissions}/10,000`;
+});
+
+
 
 
 const modal = document.getElementById('customModal');
