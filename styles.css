@@ -191,3 +191,43 @@ select {
     -webkit-appearance: none; /* Removes default styling for Webkit browsers */
     -moz-appearance: none; /* Removes default styling for Firefox */}
 
+
+    .board-toggle {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    
+    .board-toggle button {
+        padding: 10px 20px;
+        margin: 5px;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    
+    .board-toggle button.active {
+        background-color: #020000;
+    }
+    
+    .board {
+        display: none;
+    }
+    
+    .board.active {
+        display: block;
+    }
+    
+/* ... existing CSS ... */
+
+.deleteBtn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2em;
+    margin-left: 10px;
+    transition: opacity 0.3s;
+}
+
+.deleteBtn:hover {
+    opacity: 0.7;
+}

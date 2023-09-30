@@ -51,11 +51,14 @@ document.addEventListener('DOMContentLoaded', function() {
                     <span class="emoji upvote" title="Upvote">👍</span>
                     <span class="emoji downvote" title="Downvote">👎</span>
                     <span class="emoji flag" title="Flag">🚩</span>
+                    <span class="emoji delete" title="Delete">🗑️</span>
                 </span>
             `;
             memoriesList.appendChild(li);
             addVoteListeners(li, key);
             addFlagListener(li);
+            addDeleteListener(li, key);  // Add this line
+
         }
     });
 
@@ -85,6 +88,15 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    function addDeleteListener(li, key) {
+        const deleteBtn = li.querySelector('.delete');
+        deleteBtn.addEventListener('click', function() {
+            const memoryRef = db.ref('memories/' + key);
+            memoryRef.remove();
+            li.remove();
+        });
+    }
+
     function addFlagListener(li) {
         const flagBtn = li.querySelector('.flag');
         flagBtn.addEventListener('click', function() {
@@ -94,6 +106,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     
 });
+
+
 
 const modal = document.getElementById('customModal');
 const closeModal = document.getElementById('closeModal');
@@ -112,3 +126,4 @@ document.addEventListener('click', function(e) {
         showAlert();
     }
 });
+
